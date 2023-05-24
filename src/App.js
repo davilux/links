@@ -15,7 +15,7 @@ function App() {
         icon: "venmo",
       },
       {
-        name: "Check out my projects on GitHub",
+        name: "Check out my projects",
         url: "https://github.com/davilux/",
         icon: "github",
       },
@@ -50,12 +50,17 @@ function App() {
       <ul>
         {data.links.map((link, idx) => {
           return (
-            <li key={`link-${idx}`}>
-              <a href={link.url} target="_blank" rel="noreferrer">
+            <a
+              key={`link-${idx}`}
+              href={link.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button>
                 {loadIcon(link.icon)}
-                {link.name}
-              </a>
-            </li>
+                <p>{link.name}</p>
+              </button>
+            </a>
           );
         })}
       </ul>
