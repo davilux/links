@@ -4,12 +4,11 @@
   --cosmic-cobalt:#402e8c;
   --russian-violet:#874fbc;
   --xiketic:#0f0b20;
-  --transparent-lavender-white:#e1cff200;
-  --transparent-cosmic-cobalt:#402e8c00;
+  --deep-plum:#231b43;
 }
 
 html{
-  font-size: 12px;
+  font-size: 16px;
 }
 
 body {
@@ -26,7 +25,7 @@ body {
 }
 
 .profile-pic{
-  border: 2px solid #231b43;
+  border: 2px solid var(--deep-plum);
   border-radius: 100%;
   width: 100px;
 }
@@ -47,8 +46,9 @@ button{
   width: 100%;
   margin:10px 0px;
   background-color: var(--xiketic);
-  border: 1px solid #231b43;
-  color: var(--slate-blue);
+  border: 1px solid var(--deep-plum);
+  /* color: var(--slate-blue); */
+  color: var(--deep-lavender-white);
   display:flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -65,6 +65,7 @@ p{
   display: flex;
   align-items: left;
   justify-content: left;
+  font-size: 1rem;
 }
 
 a{
