@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
+  const data = {
+    name: "Davi Lux",
+    image: "http://github.com/davilux.png",
+    bio: "Ethical Hacker",
+    links: [
+      {
+        name: "Tip me",
+        url: "http://venmo.com/davilux/",
+        icon: "venmo",
+      },
+      {
+        name: "Check out my projects on GitHub",
+        url: "https://github.com/davilux/",
+        icon: "github",
+      },
+      {
+        name: "Personal portfolio site",
+        url: "https://davilux.github.io/",
+        icon: "",
+      },
+      {
+        name: "Follow me on Instagram",
+        url: "https://instagram.com/mx.davilux",
+        icon: "instagram",
+      },
+    ],
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img
+        alt={`portrait of ${data.name}`}
+        src={data.image}
+        className="profile-pic"
+      ></img>
+      <h1>{data.name}</h1>
+      <ul>
+        {data.links.map((link, idx) => {
+          return (
+            <li key={`link-${idx}`}>
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.name}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
