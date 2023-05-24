@@ -1,3 +1,8 @@
+import GitHubIcon from "@mui/icons-material/GitHub";
+import PaidIcon from "@mui/icons-material/Paid";
+import ComputerIcon from "@mui/icons-material/Computer";
+import InstagramIcon from "@mui/icons-material/Instagram";
+
 function App() {
   const data = {
     name: "Davi Lux",
@@ -17,7 +22,7 @@ function App() {
       {
         name: "Personal portfolio site",
         url: "https://davilux.github.io/",
-        icon: "",
+        icon: "computer",
       },
       {
         name: "Follow me on Instagram",
@@ -26,6 +31,14 @@ function App() {
       },
     ],
   };
+
+  const loadIcon = (iconName) => {
+    if (iconName === "github") return <GitHubIcon />;
+    if (iconName === "venmo") return <PaidIcon />;
+    if (iconName === "computer") return <ComputerIcon />;
+    if (iconName === "instagram") return <InstagramIcon />;
+  };
+
   return (
     <div className="App">
       <img
@@ -39,6 +52,7 @@ function App() {
           return (
             <li key={`link-${idx}`}>
               <a href={link.url} target="_blank" rel="noreferrer">
+                {loadIcon(link.icon)}
                 {link.name}
               </a>
             </li>
