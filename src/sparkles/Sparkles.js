@@ -85,7 +85,7 @@ function usePrefersReducedMotion() {
 
 //generateSparkle creates the data for a new sparkle instance.
 const DEFAULT_COLOR = "#FFFFFFFF";
-const generateSparkle = (color = DEFAULT_COLOR) => {
+const generateSparkle = (color) => {
   const sparkle = {
     //TODO: Refactor to make sure IDs are unique.
     id: String(random(10000, 99999)),
@@ -96,9 +96,6 @@ const generateSparkle = (color = DEFAULT_COLOR) => {
       // Pick a random spot in the available space
       top: random(0, 100) + "%",
       left: random(0, 100) + "%",
-      // Float sparkles above sibling content
-      zIndex: 2,
-      pointerEvents: "none",
     },
   };
   return sparkle;
@@ -171,10 +168,16 @@ const comeInOut = keyframes`
     transform: scale(0);
   }
 `;
+const Wrapper = styled.span`
+  position: relative;
+  display: inline-block;
+`;
 
 const SparkleWrapper = styled.span`
   position: absolute;
   display: block;
+  z-index: 2;
+  pointer-events: none;
 `;
 
 const SparkleSvg = styled.svg`
@@ -184,14 +187,9 @@ const SparkleSvg = styled.svg`
   }
 `;
 
-const Wrapper = styled.span`
-  position: relative;
-  display: inline-block;
-`;
 const ChildWrapper = styled.strong`
   position: relative;
   z-index: 1;
-  font-weight: bold;
 `;
 
 export default Sparkles;
