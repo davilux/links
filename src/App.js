@@ -3,6 +3,8 @@ import PaidIcon from "@mui/icons-material/Paid";
 import ComputerIcon from "@mui/icons-material/Computer";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
+import Sparkles from "./sparkles/Sparkles";
+
 function App() {
   const data = {
     name: "Davi Lux",
@@ -41,11 +43,13 @@ function App() {
 
   return (
     <div className="App">
-      <img
-        alt={`portrait of ${data.name}`}
-        src={data.image}
-        className="profile-pic"
-      ></img>
+      <Sparkles>
+        <img
+          alt={`portrait of ${data.name}`}
+          src={data.image}
+          className="profile-pic"
+        ></img>
+      </Sparkles>
       <h1>{data.name}</h1>
       <ul>
         {data.links.map((link, idx) => {
@@ -58,7 +62,9 @@ function App() {
             >
               <button>
                 {loadIcon(link.icon)}
-                <p>{link.name}</p>
+                <p>
+                  <Sparkles>{link.name}</Sparkles>
+                </p>
               </button>
             </a>
           );
