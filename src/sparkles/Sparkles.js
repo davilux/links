@@ -106,14 +106,8 @@ function SparkleInstance({ color, size, style }) {
   const path =
     "M125 0C125 0 127.551 67.4468 155.052 94.948C182.553 122.449 250 125 250 125C250 125 182.553 127.551 155.052 155.052C127.551 182.553 125 250 125 250C125 250 122.449 182.553 94.948 155.052C67.4468 127.551 0 125 0 125C0 125 67.4468 122.449 94.948 94.948C122.449 67.4468 125 0 125 0Z";
   return (
-    <SparkleWrapper>
-      <SparkleSvg
-        width={size}
-        height={size}
-        viewBox="0 0 250 250"
-        fill="none"
-        style={style}
-      >
+    <SparkleWrapper style={style}>
+      <SparkleSvg width={size} height={size} viewBox="0 0 250 250" fill="none">
         <path d={path} fill={color} />
       </SparkleSvg>
     </SparkleWrapper>
@@ -157,7 +151,7 @@ function Sparkles({ color = DEFAULT_COLOR, children }) {
 
 /*-------- STYLED COMPONENTS --------*/
 
-const comeInOut = keyframes`
+const fadeInOut = keyframes`
   0% {
     transform: scale(0);
   }
@@ -169,8 +163,8 @@ const comeInOut = keyframes`
   }
 `;
 const Wrapper = styled.span`
-  position: relative;
   display: inline-block;
+  position: relative;
 `;
 
 const SparkleWrapper = styled.span`
@@ -183,7 +177,7 @@ const SparkleWrapper = styled.span`
 const SparkleSvg = styled.svg`
   display: block;
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${comeInOut} 700ms ease-in-out forwards;
+    animation: ${fadeInOut} 700ms ease-in-out forwards;
   }
 `;
 
