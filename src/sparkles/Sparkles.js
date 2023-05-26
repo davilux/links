@@ -131,8 +131,8 @@ function Sparkles({ color = DEFAULT_COLOR, children }) {
       nextSparkles.push(sparkle);
       setSparkles(nextSparkles);
     },
-    prefersReducedMotion ? null : 50,
-    prefersReducedMotion ? null : 450
+    prefersReducedMotion ? null : 200,
+    prefersReducedMotion ? null : 600
   );
 
   return (
